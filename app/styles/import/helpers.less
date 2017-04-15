@@ -1,0 +1,86 @@
+//buttons
+.btn-round {
+  border-radius: 100%;
+  padding: 6px 10px;
+  font-size:24px;
+}
+.btn {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: bold;
+}
+//card
+.card{
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  -webkit-box-shadow: 0 0 4px 2px #DBDBDB;
+  box-shadow: 0 0 4px 2px #DBDBDB;
+  overflow: hidden;
+  position: relative;
+  min-height: 340px;
+  margin-bottom: 25px;
+  figure {
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    overflow: hidden;
+  }
+  img {
+    max-height: 190px;
+    width: 100%;
+  }
+  .card-content {
+    padding: 4px 14px;
+  }
+  a{
+    color:#333333;
+  }
+  h3 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  .btn{
+    position: absolute;
+    bottom:-155px;
+    z-index: 4;
+    left: 0;
+    right: 0;
+    font-size: 20px;
+  }
+  &:hover {
+    .btn {
+      bottom:4%;
+    }
+    a {
+      position: absolute;
+      top: 20%;
+      width: 100%;
+      background: rgba(34, 34, 34,0.85);
+      color: #fff;
+      margin: 0;
+      left: 0;
+      padding: 12px 4px;
+    }
+    figure {
+      border-radius: 0;
+      margin-bottom: 10px;
+    }
+  }
+  .overlay {
+    width: 0;
+    height: 0;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 2;
+  }
+}
+//transition
+.transition {
+    transition: .3s cubic-bezier(.3, 0, 0, 1.3);
+    &:hover {
+      transition: .3s cubic-bezier(.3, 0, 0, 1.3);
+    }
+}
