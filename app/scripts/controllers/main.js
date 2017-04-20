@@ -8,36 +8,34 @@
  * Controller of swApp
  */
 angular.module('lolApp')
-  .controller('MainCtrl', function($scope,$http,$rootScope) {
-    $rootScope.getName = function(i){
-      $rootScope.sumName = i;
-      $rootScope.url = "http://localhost:8080";
+  .controller('MainCtrl', function($scope,$http,$rootScope, MainApiUrl) {
+    $scope.getName = function(i){
+      $scope.sumName = i;
       $http({
          method: 'GET',
-         url:$scope.url + '/api/riot/summonername/' + $scope.sumName,
+         url:MainApiUrl + '/api/riot/summonername/' + $scope.sumName,
          cache: true
       })
       .then(function (response) {
         var data = response.data;
         var body = angular.fromJson(data.body);
-        $rootScope.sumDet = body;
-        console.log($rootScope.sumDet);
-        $rootScope.sumID = $rootScope.sumDet[$rootScope.sumName].id;
-        $rootScope.name = $rootScope.sumDet[$rootScope.sumName].name;
-        $rootScope.getStats();
+        $scope.sumDet = body;
+        $scope.sumID = $scope.sumDet[$scope.sumName].id;
+        $scope.name = $scope.sumDet[$scope.sumName].name;
+        $scope.getStats();
       });
     };
-    $rootScope.getStats = function(){
+    $scope.getStats = function(){
       $http({
          method: 'GET',
-         url:$rootScope.url + '/api/riot/stats/' + $rootScope.sumID,
+         url:MainApiUrl + '/api/riot/stats/' + $scope.sumID,
          cache: true
       })
       .then(function (response) {
         var dataStats = response.data;
         var bodyStats = angular.fromJson(dataStats.body);
-        $rootScope.sumStats = bodyStats;
-        console.log($rootScope.sumStats);
+        $scope.sumStats = bodyStats;
+        console.log($scope.sumStats);
       });
     };
 });

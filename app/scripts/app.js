@@ -13,3 +13,4 @@ angular.module('lolApp', [
     'ngAnimate',
     'ui.bootstrap'
   ])
+  .constant("MainApiUrl", "http://localhost:8080")

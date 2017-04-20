@@ -8,17 +8,17 @@
  * Controller of swApp
  */
 angular.module('lolApp')
-  .controller('ChampsCtrl', function($scope, $http) {
-    $scope.url = "http://localhost:8080";
-    $http({
-       method: 'GET',
-       url:$scope.url + '/api/riot/champs',
-       cache: true
-    })
-    .then(function (response) {
-      var data = response.data;
-      var body = angular.fromJson(data.body);
-      $scope.champs = body.data;
-      console.log($scope.champs);
-    });
+  .controller('ChampsCtrl', function($scope, $http, $rootScope) {
+    console.log($rootScope.MainUrl);
+    // $http({
+    //    method: 'GET',
+    //    url:$rootScope.MainUrl + '/api/riot/champs',
+    //    cache: true
+    // })
+    // .then(function (response) {
+    //   var data = response.data;
+    //   var body = angular.fromJson(data.body);
+    //   $scope.champs = body.data;
+    //   console.log($scope.champs);
+    // });
   });//end controller

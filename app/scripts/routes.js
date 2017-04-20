@@ -9,14 +9,19 @@ angular.module('lolApp')
       url: "/app",
       views:{
         'mainApp': {
-          templateUrl: "views/main.html",
-          controller: 'MainCtrl'
+          templateUrl: "views/main.html"
         }
       }
     })
     .state('app.home', {
       url:'/home',
-      templateUrl: "views/home.html"
+      templateUrl: "views/home.html",
+      controller: 'MainCtrl'
+    })
+    .state('app.champions', {
+      url:'/champions',
+      templateUrl: "views/champions.html",
+      controller: 'ChampsCtrl'
     });
 
 });
