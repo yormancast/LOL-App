@@ -18,6 +18,10 @@ angular.module('lolApp')
       templateUrl: "views/home.html",
       controller: 'MainCtrl'
     })
+    .state('app.home.stats', {
+      url:'/stats',
+      templateUrl: "views/home-stats.html"      
+    })
     .state('app.champions', {
       url:'/champions',
       templateUrl: "views/champions.html",
