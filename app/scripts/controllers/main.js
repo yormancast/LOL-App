@@ -34,8 +34,15 @@ angular.module('lolApp')
       .then(function (response) {
         var dataStats = response.data;
         var bodyStats = angular.fromJson(dataStats.body);
-        $scope.sumStats = bodyStats;
-        console.log($scope.sumStats);
+        $rootScope.sumStats = bodyStats;
+        console.log($rootScope.sumStats);
+        var statsGlobalGames = $rootScope.sumStats.champions[$rootScope.sumStats.champions.length - 1].stats;
+        $scope.kda = $scope.getKDA(statsGlobalGames.totalChampionKills, statsGlobalGames.totalDeathsPerSession, statsGlobalGames.totalAssists);
       });
     };
+
+    $scope.getKDA = function(kills, deaths, assists) {
+      var kda = Math.round( ((kills + assists) / deaths) * 10 ) / 10;
+      return kda;
+    }
 });
